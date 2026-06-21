@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thỏ Bông - Bé học tiếng Anh 🐰</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== THANH TIÊU ĐỀ (có logo con thỏ) ===== -->
+  <header class="topbar">
+    <div class="logo">
+      <!-- Logo con thỏ vẽ bằng SVG (không cần file ảnh) -->
+      <svg class="bunny-logo" viewBox="0 0 100 100" width="46" height="46" aria-hidden="true">
+        <ellipse cx="35" cy="28" rx="9"  ry="22" fill="#fff"/>
+        <ellipse cx="65" cy="28" rx="9"  ry="22" fill="#fff"/>
+        <ellipse cx="35" cy="30" rx="4"  ry="14" fill="#ffb6c8"/>
+        <ellipse cx="65" cy="30" rx="4"  ry="14" fill="#ffb6c8"/>
+        <circle  cx="50" cy="62" r="30" fill="#fff"/>
+        <circle  cx="40" cy="58" r="4.5" fill="#3a2b2b"/>
+        <circle  cx="60" cy="58" r="4.5" fill="#3a2b2b"/>
+        <ellipse cx="50" cy="68" rx="4" ry="3" fill="#ff7aa2"/>
+        <path d="M50 71 q-7 6 -14 2" stroke="#3a2b2b" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M50 71 q7 6 14 2"  stroke="#3a2b2b" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <circle cx="30" cy="66" r="4" fill="#ffd0dc"/>
+        <circle cx="70" cy="66" r="4" fill="#ffd0dc"/>
+      </svg>
+      <span>Thỏ Bông</span>
+    </div>
+    <p class="slogan">Bé học tiếng Anh qua hoạt hình &amp; trò chuyện cùng AI</p>
+  </header>
+
+  <!-- ===== CÁC MÀN HÌNH (mỗi <section> là 1 màn hình) ===== -->
+  <main id="app">
+
+    <!-- MÀN HÌNH 1: TRANG CHỦ -->
+    <section id="screen-home" class="screen active">
+      <h1 class="hello">Xin chào bé! 👋</h1>
+      <p class="sub">Hôm nay bé muốn học gì nào?</p>
+      <div class="menu-grid">
+        <button class="menu-card c-pink"   onclick="go('videos')">
+          <span class="ic">📺</span><span>Xem hoạt hình</span></button>
+        <button class="menu-card c-yellow" onclick="go('vocab')">
+          <span class="ic">🃏</span><span>Học từ vựng</span></button>
+        <button class="menu-card c-green"  onclick="go('chat')">
+          <span class="ic">🐰</span><span>Nói chuyện với Thỏ</span></button>
+        <button class="menu-card c-blue"   onclick="go('quiz')">
+          <span class="ic">🎮</span><span>Chơi đố vui</span></button>
+      </div>
+    </section>
+
+    <!-- MÀN HÌNH 2: DANH SÁCH VIDEO -->
+    <section id="screen-videos" class="screen">
+      <button class="back" onclick="go('home')">⬅ Về trang chủ</button>
+      <h2>📺 Chọn một video để xem</h2>
+      <div id="video-list" class="video-list"><!-- JS tự đổ video vào đây --></div>
+    </section>
+
+    <!-- MÀN HÌNH 3: ĐANG XEM 1 VIDEO -->
+    <section id="screen-player" class="screen">
+      <button class="back" onclick="go('videos')">⬅ Danh sách video</button>
+      <h2 id="player-title"></h2>
+      <div class="player-wrap"><div id="player-frame"></div></div>
+      <button class="big-btn" onclick="startLessonFromVideo()">
+        ✅ Xem xong rồi! Học từ vựng trong video ➜
+      </button>
+    </section>
+
+    <!-- MÀN HÌNH 4: THẺ TỪ VỰNG (FLASHCARD) -->
+    <section id="screen-vocab" class="screen">
+      <button class="back" onclick="go('home')">⬅ Về trang chủ</button>
+      <h2 id="vocab-heading">🃏 Thẻ từ vựng</h2>
+      <div id="flashcard" class="flashcard" onclick="speakCurrentWord()">
+        <div class="fc-emoji" id="fc-emoji">🐶</div>
+        <div class="fc-word"  id="fc-word">dog</div>
+        <div class="fc-vi"    id="fc-vi">con chó</div>
+        <div class="fc-phrase" id="fc-phrase">I see a dog.</div>
+        <div class="fc-tap">👆 Chạm vào thẻ để nghe đọc</div>
+      </div>
+      <div class="fc-nav">
+        <button class="round-btn" onclick="prevCard()">⬅</button>
+        <button class="speak-btn" onclick="speakCurrentWord()">🔊 Nghe lại</button>
+        <button class="round-btn" onclick="nextCard()">➡</button>
+      </div>
+      <p id="vocab-count" class="count"></p>
+    </section>
+
+    <!-- MÀN HÌNH 5: TRÒ CHUYỆN VỚI THỎ (giọng nói) -->
+    <section id="screen-chat" class="screen">
+      <button class="back" onclick="stopChat(); go('home')">⬅ Về trang chủ</button>
+      <h2>🐰 Nói chuyện với Thỏ Bông</h2>
+
+      <div class="bunny-stage">
+        <!-- Con thỏ to, sẽ "nhún nhảy" khi đang nói -->
+        <svg id="big-bunny" class="big-bunny" viewBox="0 0 200 220" width="170" height="190">
+          <ellipse cx="70"  cy="55" rx="16" ry="42" fill="#fff" stroke="#e9d5da" stroke-width="2"/>
+          <ellipse cx="130" cy="55" rx="16" ry="42" fill="#fff" stroke="#e9d5da" stroke-width="2"/>
+          <ellipse cx="70"  cy="58" rx="7"  ry="28" fill="#ffb6c8"/>
+          <ellipse cx="130" cy="58" rx="7"  ry="28" fill="#ffb6c8"/>
+          <circle  cx="100" cy="130" r="62" fill="#fff" stroke="#e9d5da" stroke-width="2"/>
+          <circle  cx="82"  cy="120" r="9" fill="#3a2b2b"/>
+          <circle  cx="118" cy="120" r="9" fill="#3a2b2b"/>
+          <circle  cx="85"  cy="117" r="3" fill="#fff"/>
+          <circle  cx="121" cy="117" r="3" fill="#fff"/>
+          <ellipse cx="100" cy="138" rx="7" ry="5" fill="#ff7aa2"/>
+          <ellipse id="bunny-mouth" cx="100" cy="152" rx="6" ry="4" fill="#c45b7a"/>
+          <circle cx="64"  cy="140" r="9" fill="#ffd6e0"/>
+          <circle cx="136" cy="140" r="9" fill="#ffd6e0"/>
+        </svg>
+      </div>
+
+      <div id="chat-log" class="chat-log"></div>
+
+      <div class="mic-area">
+        <button id="mic-btn" class="mic-btn" onclick="toggleMic()">🎤</button>
+        <p id="mic-hint" class="mic-hint">Nhấn nút micro rồi nói nhé!</p>
+      </div>
+      <p id="chat-note" class="note"></p>
+    </section>
+
+    <!-- MÀN HÌNH 6: ĐỐ VUI -->
+    <section id="screen-quiz" class="screen">
+      <button class="back" onclick="go('home')">⬅ Về trang chủ</button>
+      <h2>🎮 Đố vui: Nghe và chọn đúng hình</h2>
+      <p class="quiz-word">Từ cần tìm: <b id="quiz-word">dog</b>
+        <button class="speak-btn small" onclick="speakText(document.getElementById('quiz-word').innerText,'en')">🔊</button>
+      </p>
+      <div id="quiz-options" class="quiz-options"></div>
+      <p id="quiz-result" class="quiz-result"></p>
+      <p id="quiz-score" class="count"></p>
+    </section>
+
+  </main>
+
+  <!-- Nạp dữ liệu trước, rồi đến phần xử lý -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
