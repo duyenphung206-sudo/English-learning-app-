@@ -3,10 +3,125 @@
    Đọc kèm phần chú thích (dòng bắt đầu bằng //) để hiểu.
    ============================================================ */
 
+/* ---------- 0) XÁC THỰC (ĐĂNG NHẬP / ĐĂNG KÝ BẰNG EMAIL) ---------- */
+let currentUser = null;          // user Firebase hiện tại (null = chưa đăng nhập)
+let learnedWordsSet = new Set(); // các từ bé đã xem qua flashcard (để lưu tiến trình)
+let watchedVideosSet = new Set();// các video bé đã xem xong
+
+function switchAuthTab(which) {
+  const isLogin = which === 'login';
+  document.getElementById('tab-login').classList.toggle('active', isLogin);
+  document.getElementById('tab-register').classList.toggle('active', !isLogin);
+  document.getElementById('form-login').classList.toggle('hidden', !isLogin);
+  document.getElementById('form-register').classList.toggle('hidden', isLogin);
+  showAuthMessage('', false);
+}
+
+function showAuthMessage(text, isError) {
+  const el = document.getElementById('auth-message');
+  el.innerText = text;
+  el.classList.toggle('error', !!isError);
+}
+
+async function handleLogin(event) {
+  event.preventDefault();
+  const email = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value;
+  showAuthMessage('Đang đăng nhập...', false);
+  try {
+    await window.Auth.login(email, password);
+    // Đăng nhập xong, handleAuthChange() sẽ tự chuyển sang trang chủ
+  } catch (err) {
+    showAuthMessage(window.Auth.friendlyError(err.code), true);
+  }
+  return false;
+}
+
+async function handleRegister(event) {
+  event.preventDefault();
+  const childName = document.getElementById('register-childname').value.trim();
+  const email = document.getElementById('register-email').value.trim();
+  const password = document.getElementById('register-password').value;
+  const password2 = document.getElementById('register-password2').value;
+
+  if (password !== password2) {
+    showAuthMessage('Mật khẩu nhập lại không khớp!', true);
+    return false;
+  }
+  showAuthMessage('Đang tạo tài khoản...', false);
+  try {
+    await window.Auth.register(email, password, childName);
+  } catch (err) {
+    showAuthMessage(window.Auth.friendlyError(err.code), true);
+  }
+  return false;
+}
+
+async function handleLogout() {
+  stopChat();
+  stopVideo();
+  await window.Auth.logout();
+}
+
+async function handleForgotPassword() {
+  const email = document.getElementById('login-email').value.trim();
+  if (!email) {
+    showAuthMessage('Nhập email vào ô phía trên rồi bấm "Quên mật khẩu?" nhé!', true);
+    return;
+  }
+  try {
+    await window.Auth.resetPassword(email);
+    showAuthMessage('Đã gửi email đặt lại mật khẩu, kiểm tra hộp thư nhé!', false);
+  } catch (err) {
+    showAuthMessage(window.Auth.friendlyError(err.code), true);
+  }
+}
+
+function renderHomeProgress() {
+  document.getElementById('home-progress').innerText =
+    `📖 ${learnedWordsSet.size} từ đã học · 📺 ${watchedVideosSet.size} video đã xem · 🎮 ${quizScore}/${quizTotal} điểm đố vui`;
+}
+
+/* auth.js gọi hàm này mỗi khi trạng thái đăng nhập thay đổi */
+async function handleAuthChange(user) {
+  currentUser = user;
+  const bar = document.getElementById('user-bar');
+
+  if (!user) {
+    bar.classList.add('hidden');
+    learnedWordsSet = new Set();
+    watchedVideosSet = new Set();
+    quizScore = 0; quizTotal = 0;
+    go('auth');
+    return;
+  }
+
+  const profile = await window.Auth.loadProfile(user.uid);
+  learnedWordsSet = new Set(profile.learnedWords || []);
+  watchedVideosSet = new Set(profile.watchedVideos || []);
+  quizScore = profile.quizScore || 0;
+  quizTotal = profile.quizTotal || 0;
+
+  document.getElementById('user-email-label').innerText = user.email;
+  bar.classList.remove('hidden');
+  document.getElementById('home-childname').innerText =
+    profile.childName ? `, ${profile.childName}` : '';
+  renderHomeProgress();
+  go('home');
+}
+
+window.Auth.onAuthStateChanged(handleAuthChange);
+
 /* ---------- 1) CHUYỂN MÀN HÌNH ---------- */
 function go(name) {
   // Tắt mọi màn hình, chỉ bật màn hình được chọn
   if (window.speechSynthesis) window.speechSynthesis.cancel();
+
+  // Rời màn hình xem video thì dừng video (gỡ iframe) để không phát ngầm
+  if (name !== 'player') stopVideo();
+
+  // Chưa đăng nhập thì luôn ở màn hình đăng nhập/đăng ký
+  if (name !== 'auth' && !currentUser) name = 'auth';
 
   // Tắt mọi màn hình, chỉ bật màn hình được chọn
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -14,9 +129,14 @@ function go(name) {
   window.scrollTo(0, 0);
 
   if (name === 'videos') renderVideos();
-  if (name === 'vocab') startVocab(ALL_WORDS);   // mở từ vựng: học tất cả
   if (name === 'chat') openChat();
   if (name === 'quiz') newQuiz();
+}
+
+/* Mở màn hình từ vựng và học TẤT CẢ từ (nút "Học từ vựng" ở trang chủ) */
+function openVocabAll() {
+  go('vocab');
+  startVocab(ALL_WORDS);
 }
 
 /* Gom tất cả từ trong từ điển thành 1 danh sách để học chung */
@@ -25,13 +145,36 @@ const ALL_WORDS = Object.keys(DICTIONARY);
 /* ---------- 2) ĐỌC TIẾNG (Text-To-Speech) ---------- */
 /* Trình duyệt có sẵn giọng đọc miễn phí. lang='en' đọc giọng Anh,
    lang='vi' đọc giọng Việt.                                    */
+
+// Danh sách giọng đọc của trình duyệt chỉ có sau 1 khoảng trễ (load bất đồng bộ),
+// nên phải lắng nghe 'voiceschanged' rồi lưu lại, tránh gọi speak() trước khi có giọng.
+let ttsVoices = [];
+function refreshVoices() {
+  if ('speechSynthesis' in window) ttsVoices = window.speechSynthesis.getVoices();
+}
+if ('speechSynthesis' in window) {
+  refreshVoices();
+  window.speechSynthesis.onvoiceschanged = refreshVoices;
+}
+
+// Ưu tiên giọng có sẵn trong máy (localService=true) thay vì giọng chạy qua mạng của Google,
+// vì giọng mạng sẽ bị câm (không lỗi, không tiếng) nếu kết nối tới máy chủ Google bị chặn/chậm.
+function pickVoice(langPrefix) {
+  const matches = ttsVoices.filter(v => v.lang.toLowerCase().startsWith(langPrefix));
+  return matches.find(v => v.localService) || matches[0] || null;
+}
+
 function speakText(text, lang) {
   if (!('speechSynthesis' in window)) { return; }
   // XÓA DÒNG cancel() Ở ĐÂY để cho phép xếp hàng âm thanh
   const u = new SpeechSynthesisUtterance(text);
-  u.lang = (lang === 'vi') ? 'vi-VN' : 'en-US';
+  const langCode = (lang === 'vi') ? 'vi-VN' : 'en-US';
+  u.lang = langCode;
+  const voice = pickVoice(lang === 'vi' ? 'vi' : 'en');
+  if (voice) u.voice = voice;
   u.rate = 0.9;
   u.pitch = 1.15;
+  u.onerror = (e) => console.warn('[TTS] Không đọc được "' + text + '":', e.error);
   window.speechSynthesis.speak(u);
 }
 
@@ -65,9 +208,21 @@ function playVideo(id) {
   go('player');
 }
 
+/* Gỡ iframe video khỏi DOM để dừng phát khi rời màn hình xem video */
+function stopVideo() {
+  const frame = document.getElementById('player-frame');
+  if (frame) frame.innerHTML = '';
+}
+
 /* Khi bấm "Xem xong - học từ vựng": lấy đúng các từ của video đó */
 function startLessonFromVideo() {
   if (window.speechSynthesis) window.speechSynthesis.cancel();
+  if (currentUser && !watchedVideosSet.has(currentVideo.id)) {
+    watchedVideosSet.add(currentVideo.id);
+    window.Auth.addToProgressArray(currentUser.uid, 'watchedVideos', currentVideo.id);
+    renderHomeProgress();
+  }
+  go('vocab');
   startVocab(currentVideo.words, 'Từ vựng từ video: ' + currentVideo.title);
 }
 
@@ -80,7 +235,6 @@ function startVocab(words, heading) {
   cardIndex = 0;
   document.getElementById('vocab-heading').innerText = heading || '🃏 Thẻ từ vựng';
   showCard();
-  go('vocab');
 }
 
 function showCard() {
@@ -93,6 +247,12 @@ function showCard() {
   document.getElementById('vocab-count').innerText =
     `Thẻ ${cardIndex + 1} / ${deck.length}`;
   speakCurrentWord();           // tự đọc khi mở thẻ mới
+
+  if (currentUser && !learnedWordsSet.has(w)) {
+    learnedWordsSet.add(w);
+    window.Auth.addToProgressArray(currentUser.uid, 'learnedWords', w);
+    renderHomeProgress();
+  }
 }
 
 function speakCurrentWord() {
@@ -255,6 +415,9 @@ function checkQuiz(btn, word) {
   }
   document.getElementById('quiz-score').innerText =
     `Điểm: ${quizScore} / ${quizTotal}`;
+
+  if (currentUser) window.Auth.saveProgress(currentUser.uid, { quizScore, quizTotal });
+  renderHomeProgress();
 }
 
 /* Hàm phụ: xáo trộn 1 mảng */
@@ -265,5 +428,5 @@ function shuffle(arr) {
   }
 }
 
-/* Khi rời màn hình bằng cách khác, vẫn dừng giọng đọc */
-window.addEventListener('beforeunload', stopChat);
+/* Khi rời màn hình bằng cách khác, vẫn dừng giọng đọc và video */
+window.addEventListener('beforeunload', () => { stopChat(); stopVideo(); });
