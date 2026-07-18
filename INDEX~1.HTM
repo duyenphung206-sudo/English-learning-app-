@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Bé Học Tiếng Anh 👾</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- KHUNG CẢNH NỀN -->
+<div id="scene">
+  <div class="sun"></div>
+  <div class="cl" style="top:8%;width:130px;height:38px;animation-duration:46s"></div>
+  <div class="cl" style="top:18%;width:95px;height:30px;animation-duration:64s;animation-delay:-26s;opacity:.85"></div>
+  <div class="cl" style="top:30%;width:70px;height:24px;animation-duration:80s;animation-delay:-50s;opacity:.7"></div>
+  <svg class="hills" viewBox="0 0 1440 200" preserveAspectRatio="none">
+    <path d="M0 90 Q 240 20 520 78 T 1050 70 T 1440 85 L1440 200 L0 200 Z" fill="#94d255"/>
+    <path d="M0 130 Q 320 70 700 118 T 1440 110 L1440 200 L0 200 Z" fill="#7dc242"/>
+    <path d="M0 170 Q 400 130 820 160 T 1440 150 L1440 200 L0 200 Z" fill="#5ba832"/>
+  </svg>
+</div>
+<div class="fly">🦋</div>
+<div class="fly" style="animation-delay:-8s;font-size:22px">🦋</div>
+<div id="homeMonsters"></div>
+
+<!-- CẢNH BÁO THIẾU GIỌNG TIẾNG VIỆT -->
+<div id="voiceWarn">
+  ⚠️ Trình duyệt này chưa có giọng đọc tiếng Việt nên giọng nói sẽ bị lơ lớ.
+  Hãy mở web bằng <b>Microsoft Edge</b> hoặc <b>Chrome</b> và bảo đảm có kết nối mạng.
+  <button onclick="this.parentElement.classList.remove('show')">✕</button>
+</div>
+
+<!-- MÀN HÌNH BẮT ĐẦU -->
+<div id="startOverlay">
+  <div id="startMonster"></div>
+  <h1>Bé Học Tiếng Anh</h1>
+  <div class="tagline">Hơn 400 từ vựng cùng các bạn quái vật! 👾</div>
+  <div id="tapHint">👆 Chạm để bắt đầu!</div>
+</div>
+
+<!-- TRANG CHỦ -->
+<div class="screen" id="scr-home">
+  <h1 style="margin-top:8px">Bé Học Tiếng Anh</h1>
+  <div class="tagline">Bé chọn trò nhé! 👇</div>
+  <div class="topics" id="topicGrid"></div>
+  <button id="parentBtn" onclick="openGate()">👨‍👩‍👧 Dành cho Ba Mẹ</button>
+</div>
+
+<!-- HỌC TỪ VỰNG -->
+<div class="screen" id="scr-learn">
+  <div class="topbar">
+    <button class="back" onclick="goHome()">🏠</button>
+    <div class="barTitle" id="learnTitle"></div>
+    <div class="starbox">⭐ <span id="starLearn">0</span></div>
+  </div>
+  <div id="learnBody">
+    <div id="learnMascot"></div>
+    <div id="cardWrap">
+      <div class="flashcard" id="card">
+        <span class="big" id="cEmoji"></span>
+        <div class="en" id="cEn"></div>
+        <div class="vi" id="cVi"></div>
+        <div class="soundRow">
+          <button class="sbtn b1" onclick="hearEN()">🔊<span>Tiếng Anh</span></button>
+          <button class="sbtn b2" onclick="hearVI()">🗣️<span>Tiếng Việt</span></button>
+          <button class="sbtn b3" style="display:none" id="animalBtn" onclick="hearAnimal()">🎵<span>Tiếng kêu</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navRow">
+    <button class="nav" onclick="moveCard(-1)">◀</button>
+    <div id="cardCount">1 / 100</div>
+    <button class="nav" onclick="moveCard(1)">▶</button>
+  </div>
+  <button class="btn pink" style="margin-top:18px" onclick="startQuiz()">🎮 Chơi trò chơi!</button>
+</div>
+
+<!-- TRÒ CHƠI TÌM TRONG CẢNH -->
+<div class="screen" id="scr-quiz">
+  <div class="topbar">
+    <button class="back" onclick="showScreen('scr-learn')">↩</button>
+    <div class="progTrack"><div id="quizBar"></div></div>
+    <div class="starbox">⭐ <span id="starQuiz">0</span></div>
+  </div>
+  <div id="quizStage">
+    <div id="qMascot"></div>
+    <div class="bubble">
+      <span id="quizQ"></span>
+      <button class="replay" onclick="askAgain()">🔊</button>
+    </div>
+  </div>
+  <div id="findWrap"><div id="findScene"></div></div>
+</div>
+
+<!-- KHU VUI CHƠI -->
+<div class="screen" id="scr-play">
+  <div class="topbar">
+    <button class="back" onclick="goHome()">🏠</button>
+    <div class="barTitle">🏡 Khu vui chơi</div>
+    <button class="back" id="musicBtn" onclick="toggleMusic()">🎵</button>
+  </div>
+  <div id="playWrap">
+    <div id="playScene">
+      <svg id="playBg" viewBox="0 0 1000 640" preserveAspectRatio="xMidYMid slice">
+        <rect width="1000" height="640" fill="#9fdcf5"/>
+        <g transform="translate(140,95)">
+          <circle r="58" fill="#ffd23f"/>
+          <circle r="48" fill="#ffdf6b"/>
+          <circle cx="-15" cy="-8" r="5.5" fill="#7a5a00"/>
+          <circle cx="15" cy="-8" r="5.5" fill="#7a5a00"/>
+          <path d="M-16 10 Q0 26 16 10" stroke="#7a5a00" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </g>
+        <g fill="#fff" opacity=".95">
+          <ellipse cx="420" cy="70" rx="55" ry="24"/><ellipse cx="460" cy="58" rx="38" ry="20"/>
+          <ellipse cx="820" cy="100" rx="48" ry="20"/><ellipse cx="855" cy="90" rx="30" ry="16"/>
+        </g>
+        <path d="M0 300 Q200 200 430 280 T 1000 260 L1000 640 L0 640 Z" fill="#b9e58a"/>
+        <ellipse cx="620" cy="420" rx="235" ry="80" fill="#6fc9e8"/>
+        <ellipse cx="620" cy="420" rx="235" ry="80" fill="none" stroke="#9adef2" stroke-width="8" stroke-dasharray="40 30"/>
+        <ellipse cx="560" cy="410" rx="60" ry="12" fill="#9adef2" opacity=".8"/>
+        <ellipse cx="700" cy="440" rx="45" ry="9" fill="#9adef2" opacity=".7"/>
+        <path d="M0 430 Q180 380 400 425 Q430 432 460 445 L470 640 L0 640 Z" fill="#7dc242"/>
+        <path d="M0 520 Q300 470 620 515 T 1000 505 L1000 640 L0 640 Z" fill="#6dbf45"/>
+        <g>
+          <line x1="500" y1="165" x2="900" y2="130" stroke="#8a5a35" stroke-width="5"/>
+          <path d="M540 162 l16 34 l16 -37 Z" fill="#f0629a"/>
+          <path d="M610 156 l16 34 l16 -37 Z" fill="#ffd23f"/>
+          <path d="M680 150 l16 34 l16 -37 Z" fill="#3b9ee8"/>
+          <path d="M750 144 l16 34 l16 -37 Z" fill="#8cc63f"/>
+          <path d="M820 138 l16 34 l16 -37 Z" fill="#9b59d0"/>
+          <rect x="494" y="160" width="9" height="130" rx="4" fill="#8a5a35"/>
+          <rect x="896" y="126" width="9" height="120" rx="4" fill="#8a5a35"/>
+        </g>
+      </svg>
+      <div id="playWord"></div>
+    </div>
+  </div>
+  <div class="tagline" id="playCount">Bé chạm vào mọi thứ để khám phá nhé! ✨</div>
+</div>
+
+<!-- KHEN THƯỞNG -->
+<div class="screen" id="scr-reward">
+  <div id="rewardMonster"></div>
+  <h1 id="rewardMsg">Bé giỏi quá!</h1>
+  <div id="rewardStars"></div>
+  <div style="display:flex;gap:14px;margin-top:12px;flex-wrap:wrap;justify-content:center">
+    <button class="btn green" onclick="startQuiz()">🔁 Chơi lại</button>
+    <button class="btn orange" onclick="showScreen('scr-learn')">📖 Học tiếp</button>
+    <button class="btn blue" onclick="goHome()">🏠 Trang chủ</button>
+  </div>
+</div>
+
+<!-- TRANG BA MẸ -->
+<div class="screen" id="scr-parent">
+  <div class="topbar">
+    <button class="back" onclick="goHome()">🏠</button>
+    <div class="barTitle">👨‍👩‍👧 Hành trình của bé</div>
+    <div style="width:52px"></div>
+  </div>
+  <div class="statGrid" id="statGrid"></div>
+  <div class="panel">
+    <div class="tabs">
+      <button class="tab on" data-r="week" onclick="setRange('week')">📅 Tuần</button>
+      <button class="tab" data-r="month" onclick="setRange('month')">🗓️ Tháng</button>
+      <button class="tab" data-r="year" onclick="setRange('year')">📆 Năm</button>
+    </div>
+    <div class="chips" style="margin-top:10px">
+      <button class="chip on" data-m="stars" onclick="setMetric('stars')">⭐ Sao</button>
+      <button class="chip" data-m="words" onclick="setMetric('words')">📖 Từ mới</button>
+      <button class="chip" data-m="min" onclick="setMetric('min')">⏱️ Phút học</button>
+    </div>
+    <div class="chart" id="chart"></div>
+  </div>
+  <div class="panel">
+    <h2>📚 Tiến độ theo chủ đề</h2>
+    <div id="topicProg"></div>
+  </div>
+  <div class="panel">
+    <h2>🎙️ Giọng đọc tiếng Việt</h2>
+    <div class="setRow"><select id="voiceSel" onchange="saveVoice()"></select></div>
+    <div class="setRow">Độ cao giọng (giọng trẻ em):
+      <input type="range" id="pitchSl" min="0.9" max="1.6" step="0.05" oninput="savePitch()">
+      <span id="pitchV"></span>
+    </div>
+    <div style="text-align:center;margin-top:12px">
+      <button class="btn blue" style="font-size:16px;padding:10px 22px" onclick="testVoice()">🔊 Nghe thử</button>
+    </div>
+    <p class="note">💡 Giọng đọc do trình duyệt cung cấp và cần có mạng. Trên máy tính, <b>Microsoft Edge</b> có giọng tiếng Việt bản xứ tự nhiên nhất (Hoài My, Nam Minh — giọng nữ/nam người Việt). Chrome dùng giọng Google Tiếng Việt. Nếu nghe lơ lớ nghĩa là máy đang thiếu giọng Việt — hãy đổi trình duyệt. Kéo "Độ cao giọng" để giọng non trẻ như trẻ em.</p>
+  </div>
+  <button class="btn pink" style="margin:18px 0 30px;font-size:15px;padding:10px 22px" onclick="resetData()">🗑️ Xóa dữ liệu học</button>
+</div>
+
+<!-- KHÓA BA MẸ -->
+<div id="gateModal">
+  <div id="gateBox">
+    <h2 style="font-size:20px">Dành cho ba mẹ 🔒</h2>
+    <p style="color:var(--sub);margin-top:6px;font-weight:700">Trả lời để mở khóa:</p>
+    <div style="font-size:30px;font-weight:800;color:var(--blue);margin-top:8px" id="gateQ"></div>
+    <input type="number" id="gateA" inputmode="numeric">
+    <div style="display:flex;gap:10px;justify-content:center">
+      <button class="btn green" style="font-size:16px;padding:9px 20px" onclick="checkGate()">Mở khóa</button>
+      <button class="btn pink" style="font-size:16px;padding:9px 20px" onclick="closeGate()">Đóng</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/sprites.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

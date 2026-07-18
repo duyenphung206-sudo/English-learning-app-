@@ -1,0 +1,1654 @@
+{
+ "words": [
+  {
+   "en": "Dog",
+   "vi": "Con chó"
+  },
+  {
+   "en": "Puppy",
+   "vi": "Chó con"
+  },
+  {
+   "en": "Poodle",
+   "vi": "Chó xù"
+  },
+  {
+   "en": "Cat",
+   "vi": "Con mèo"
+  },
+  {
+   "en": "Kitten",
+   "vi": "Mèo con"
+  },
+  {
+   "en": "Cow",
+   "vi": "Con bò"
+  },
+  {
+   "en": "Buffalo",
+   "vi": "Con trâu"
+  },
+  {
+   "en": "Ox",
+   "vi": "Bò đực"
+  },
+  {
+   "en": "Duck",
+   "vi": "Con vịt"
+  },
+  {
+   "en": "Chicken",
+   "vi": "Con gà"
+  },
+  {
+   "en": "Rooster",
+   "vi": "Gà trống"
+  },
+  {
+   "en": "Chick",
+   "vi": "Gà con"
+  },
+  {
+   "en": "Turkey",
+   "vi": "Gà tây"
+  },
+  {
+   "en": "Pig",
+   "vi": "Con heo"
+  },
+  {
+   "en": "Boar",
+   "vi": "Heo rừng"
+  },
+  {
+   "en": "Sheep",
+   "vi": "Con cừu"
+  },
+  {
+   "en": "Goat",
+   "vi": "Con dê"
+  },
+  {
+   "en": "Horse",
+   "vi": "Con ngựa"
+  },
+  {
+   "en": "Zebra",
+   "vi": "Ngựa vằn"
+  },
+  {
+   "en": "Donkey",
+   "vi": "Con lừa"
+  },
+  {
+   "en": "Bird",
+   "vi": "Con chim"
+  },
+  {
+   "en": "Eagle",
+   "vi": "Đại bàng"
+  },
+  {
+   "en": "Parrot",
+   "vi": "Con vẹt"
+  },
+  {
+   "en": "Swan",
+   "vi": "Thiên nga"
+  },
+  {
+   "en": "Peacock",
+   "vi": "Con công"
+  },
+  {
+   "en": "Flamingo",
+   "vi": "Hồng hạc"
+  },
+  {
+   "en": "Dove",
+   "vi": "Bồ câu"
+  },
+  {
+   "en": "Owl",
+   "vi": "Con cú"
+  },
+  {
+   "en": "Penguin",
+   "vi": "Chim cánh cụt"
+  },
+  {
+   "en": "Frog",
+   "vi": "Con ếch"
+  },
+  {
+   "en": "Lion",
+   "vi": "Con sư tử"
+  },
+  {
+   "en": "Tiger",
+   "vi": "Con hổ"
+  },
+  {
+   "en": "Leopard",
+   "vi": "Con báo"
+  },
+  {
+   "en": "Bear",
+   "vi": "Con gấu"
+  },
+  {
+   "en": "Panda",
+   "vi": "Gấu trúc"
+  },
+  {
+   "en": "Koala",
+   "vi": "Gấu túi"
+  },
+  {
+   "en": "Elephant",
+   "vi": "Con voi"
+  },
+  {
+   "en": "Bee",
+   "vi": "Con ong"
+  },
+  {
+   "en": "Mosquito",
+   "vi": "Con muỗi"
+  },
+  {
+   "en": "Fly",
+   "vi": "Con ruồi"
+  },
+  {
+   "en": "Monkey",
+   "vi": "Con khỉ"
+  },
+  {
+   "en": "Gorilla",
+   "vi": "Khỉ đột"
+  },
+  {
+   "en": "Orangutan",
+   "vi": "Đười ươi"
+  },
+  {
+   "en": "Fish",
+   "vi": "Con cá"
+  },
+  {
+   "en": "Tropical fish",
+   "vi": "Cá cảnh"
+  },
+  {
+   "en": "Pufferfish",
+   "vi": "Cá nóc"
+  },
+  {
+   "en": "Shark",
+   "vi": "Cá mập"
+  },
+  {
+   "en": "Dolphin",
+   "vi": "Cá heo"
+  },
+  {
+   "en": "Whale",
+   "vi": "Cá voi"
+  },
+  {
+   "en": "Octopus",
+   "vi": "Bạch tuộc"
+  },
+  {
+   "en": "Squid",
+   "vi": "Con mực"
+  },
+  {
+   "en": "Shrimp",
+   "vi": "Con tôm"
+  },
+  {
+   "en": "Lobster",
+   "vi": "Tôm hùm"
+  },
+  {
+   "en": "Crab",
+   "vi": "Con cua"
+  },
+  {
+   "en": "Shell",
+   "vi": "Vỏ sò"
+  },
+  {
+   "en": "Seal",
+   "vi": "Hải cẩu"
+  },
+  {
+   "en": "Rabbit",
+   "vi": "Con thỏ"
+  },
+  {
+   "en": "Mouse",
+   "vi": "Con chuột"
+  },
+  {
+   "en": "Rat",
+   "vi": "Chuột cống"
+  },
+  {
+   "en": "Hamster",
+   "vi": "Chuột hamster"
+  },
+  {
+   "en": "Squirrel",
+   "vi": "Con sóc"
+  },
+  {
+   "en": "Hedgehog",
+   "vi": "Con nhím"
+  },
+  {
+   "en": "Bat",
+   "vi": "Con dơi"
+  },
+  {
+   "en": "Fox",
+   "vi": "Con cáo"
+  },
+  {
+   "en": "Wolf",
+   "vi": "Con sói"
+  },
+  {
+   "en": "Raccoon",
+   "vi": "Gấu mèo"
+  },
+  {
+   "en": "Skunk",
+   "vi": "Chồn hôi"
+  },
+  {
+   "en": "Badger",
+   "vi": "Con lửng"
+  },
+  {
+   "en": "Otter",
+   "vi": "Rái cá"
+  },
+  {
+   "en": "Sloth",
+   "vi": "Con lười"
+  },
+  {
+   "en": "Kangaroo",
+   "vi": "Chuột túi"
+  },
+  {
+   "en": "Camel",
+   "vi": "Lạc đà"
+  },
+  {
+   "en": "Llama",
+   "vi": "Lạc đà không bướu"
+  },
+  {
+   "en": "Giraffe",
+   "vi": "Hươu cao cổ"
+  },
+  {
+   "en": "Deer",
+   "vi": "Con nai"
+  },
+  {
+   "en": "Hippo",
+   "vi": "Hà mã"
+  },
+  {
+   "en": "Rhino",
+   "vi": "Tê giác"
+  },
+  {
+   "en": "Bison",
+   "vi": "Bò rừng"
+  },
+  {
+   "en": "Turtle",
+   "vi": "Con rùa"
+  },
+  {
+   "en": "Snake",
+   "vi": "Con rắn"
+  },
+  {
+   "en": "Lizard",
+   "vi": "Thằn lằn"
+  },
+  {
+   "en": "Crocodile",
+   "vi": "Cá sấu"
+  },
+  {
+   "en": "Dinosaur",
+   "vi": "Khủng long"
+  },
+  {
+   "en": "Sauropod",
+   "vi": "Khủng long cổ dài"
+  },
+  {
+   "en": "Dragon",
+   "vi": "Con rồng"
+  },
+  {
+   "en": "Snail",
+   "vi": "Ốc sên"
+  },
+  {
+   "en": "Caterpillar",
+   "vi": "Sâu bướm"
+  },
+  {
+   "en": "Butterfly",
+   "vi": "Con bướm"
+  },
+  {
+   "en": "Ladybug",
+   "vi": "Bọ rùa"
+  },
+  {
+   "en": "Ant",
+   "vi": "Con kiến"
+  },
+  {
+   "en": "Cricket",
+   "vi": "Con dế"
+  },
+  {
+   "en": "Spider",
+   "vi": "Con nhện"
+  },
+  {
+   "en": "Scorpion",
+   "vi": "Bọ cạp"
+  },
+  {
+   "en": "Beetle",
+   "vi": "Bọ cánh cứng"
+  },
+  {
+   "en": "Worm",
+   "vi": "Con giun"
+  },
+  {
+   "en": "Unicorn",
+   "vi": "Kỳ lân"
+  },
+  {
+   "en": "Jellyfish",
+   "vi": "Con sứa"
+  },
+  {
+   "en": "Ram",
+   "vi": "Cừu đực"
+  },
+  {
+   "en": "Racehorse",
+   "vi": "Ngựa phi"
+  },
+  {
+   "en": "Paw prints",
+   "vi": "Dấu chân"
+  },
+  {
+   "en": "Apple",
+   "vi": "Quả táo"
+  },
+  {
+   "en": "Green apple",
+   "vi": "Táo xanh"
+  },
+  {
+   "en": "Pear",
+   "vi": "Quả lê"
+  },
+  {
+   "en": "Orange",
+   "vi": "Quả cam"
+  },
+  {
+   "en": "Lemon",
+   "vi": "Quả chanh"
+  },
+  {
+   "en": "Banana",
+   "vi": "Quả chuối"
+  },
+  {
+   "en": "Watermelon",
+   "vi": "Dưa hấu"
+  },
+  {
+   "en": "Grapes",
+   "vi": "Chùm nho"
+  },
+  {
+   "en": "Strawberry",
+   "vi": "Quả dâu tây"
+  },
+  {
+   "en": "Blueberries",
+   "vi": "Việt quất"
+  },
+  {
+   "en": "Melon",
+   "vi": "Dưa lưới"
+  },
+  {
+   "en": "Cherry",
+   "vi": "Quả anh đào"
+  },
+  {
+   "en": "Peach",
+   "vi": "Quả đào"
+  },
+  {
+   "en": "Mango",
+   "vi": "Quả xoài"
+  },
+  {
+   "en": "Pineapple",
+   "vi": "Quả dứa"
+  },
+  {
+   "en": "Coconut",
+   "vi": "Quả dừa"
+  },
+  {
+   "en": "Kiwi",
+   "vi": "Quả kiwi"
+  },
+  {
+   "en": "Tomato",
+   "vi": "Cà chua"
+  },
+  {
+   "en": "Olive",
+   "vi": "Quả ô liu"
+  },
+  {
+   "en": "Avocado",
+   "vi": "Quả bơ"
+  },
+  {
+   "en": "Eggplant",
+   "vi": "Cà tím"
+  },
+  {
+   "en": "Potato",
+   "vi": "Khoai tây"
+  },
+  {
+   "en": "Sweet potato",
+   "vi": "Khoai lang"
+  },
+  {
+   "en": "Carrot",
+   "vi": "Cà rốt"
+  },
+  {
+   "en": "Corn",
+   "vi": "Bắp ngô"
+  },
+  {
+   "en": "Chili",
+   "vi": "Ớt"
+  },
+  {
+   "en": "Bell pepper",
+   "vi": "Ớt chuông"
+  },
+  {
+   "en": "Cucumber",
+   "vi": "Dưa leo"
+  },
+  {
+   "en": "Lettuce",
+   "vi": "Rau xà lách"
+  },
+  {
+   "en": "Broccoli",
+   "vi": "Bông cải xanh"
+  },
+  {
+   "en": "Garlic",
+   "vi": "Củ tỏi"
+  },
+  {
+   "en": "Onion",
+   "vi": "Củ hành"
+  },
+  {
+   "en": "Mushroom",
+   "vi": "Cây nấm"
+  },
+  {
+   "en": "Peanuts",
+   "vi": "Đậu phộng"
+  },
+  {
+   "en": "Chestnut",
+   "vi": "Hạt dẻ"
+  },
+  {
+   "en": "Bread",
+   "vi": "Bánh mì"
+  },
+  {
+   "en": "Croissant",
+   "vi": "Bánh sừng bò"
+  },
+  {
+   "en": "Baguette",
+   "vi": "Bánh mì que"
+  },
+  {
+   "en": "Pretzel",
+   "vi": "Bánh xoắn"
+  },
+  {
+   "en": "Bagel",
+   "vi": "Bánh vòng"
+  },
+  {
+   "en": "Pancakes",
+   "vi": "Bánh kếp"
+  },
+  {
+   "en": "Waffle",
+   "vi": "Bánh tổ ong"
+  },
+  {
+   "en": "Cheese",
+   "vi": "Phô mai"
+  },
+  {
+   "en": "Meat",
+   "vi": "Thịt"
+  },
+  {
+   "en": "Chicken leg",
+   "vi": "Đùi gà"
+  },
+  {
+   "en": "Steak",
+   "vi": "Bít tết"
+  },
+  {
+   "en": "Bacon",
+   "vi": "Thịt xông khói"
+  },
+  {
+   "en": "Hamburger",
+   "vi": "Bánh mì kẹp"
+  },
+  {
+   "en": "Fries",
+   "vi": "Khoai tây chiên"
+  },
+  {
+   "en": "Pizza",
+   "vi": "Bánh pizza"
+  },
+  {
+   "en": "Hot dog",
+   "vi": "Xúc xích kẹp"
+  },
+  {
+   "en": "Sandwich",
+   "vi": "Bánh sandwich"
+  },
+  {
+   "en": "Taco",
+   "vi": "Bánh taco"
+  },
+  {
+   "en": "Burrito",
+   "vi": "Bánh cuốn Mexico"
+  },
+  {
+   "en": "Salad",
+   "vi": "Rau trộn"
+  },
+  {
+   "en": "Popcorn",
+   "vi": "Bỏng ngô"
+  },
+  {
+   "en": "Butter",
+   "vi": "Bơ sữa"
+  },
+  {
+   "en": "Salt",
+   "vi": "Muối"
+  },
+  {
+   "en": "Egg",
+   "vi": "Quả trứng"
+  },
+  {
+   "en": "Fried egg",
+   "vi": "Trứng ốp la"
+  },
+  {
+   "en": "Hot pot",
+   "vi": "Nồi lẩu"
+  },
+  {
+   "en": "Rice",
+   "vi": "Cơm trắng"
+  },
+  {
+   "en": "Rice ball",
+   "vi": "Cơm nắm"
+  },
+  {
+   "en": "Rice cracker",
+   "vi": "Bánh gạo"
+  },
+  {
+   "en": "Bento",
+   "vi": "Cơm hộp"
+  },
+  {
+   "en": "Curry",
+   "vi": "Cơm cà ri"
+  },
+  {
+   "en": "Noodles",
+   "vi": "Mì tô"
+  },
+  {
+   "en": "Spaghetti",
+   "vi": "Mì Ý"
+  },
+  {
+   "en": "Sushi",
+   "vi": "Cơm cuộn sushi"
+  },
+  {
+   "en": "Fried shrimp",
+   "vi": "Tôm chiên"
+  },
+  {
+   "en": "Fish cake",
+   "vi": "Chả cá"
+  },
+  {
+   "en": "Dumpling",
+   "vi": "Bánh bao"
+  },
+  {
+   "en": "Fortune cookie",
+   "vi": "Bánh may mắn"
+  },
+  {
+   "en": "Takeout box",
+   "vi": "Hộp thức ăn"
+  },
+  {
+   "en": "Skewer",
+   "vi": "Xiên que"
+  },
+  {
+   "en": "Dango",
+   "vi": "Bánh trôi"
+  },
+  {
+   "en": "Shaved ice",
+   "vi": "Đá bào"
+  },
+  {
+   "en": "Ice cream",
+   "vi": "Kem ly"
+  },
+  {
+   "en": "Soft ice cream",
+   "vi": "Kem ốc quế"
+  },
+  {
+   "en": "Pie",
+   "vi": "Bánh nướng"
+  },
+  {
+   "en": "Cupcake",
+   "vi": "Bánh cupcake"
+  },
+  {
+   "en": "Cake",
+   "vi": "Bánh ngọt"
+  },
+  {
+   "en": "Birthday cake",
+   "vi": "Bánh sinh nhật"
+  },
+  {
+   "en": "Pudding",
+   "vi": "Bánh flan"
+  },
+  {
+   "en": "Lollipop",
+   "vi": "Kẹo mút"
+  },
+  {
+   "en": "Candy",
+   "vi": "Viên kẹo"
+  },
+  {
+   "en": "Chocolate",
+   "vi": "Sô cô la"
+  },
+  {
+   "en": "Donut",
+   "vi": "Bánh rán vòng"
+  },
+  {
+   "en": "Cookie",
+   "vi": "Bánh quy"
+  },
+  {
+   "en": "Honey",
+   "vi": "Mật ong"
+  },
+  {
+   "en": "Milk",
+   "vi": "Sữa"
+  },
+  {
+   "en": "Baby bottle",
+   "vi": "Bình sữa"
+  },
+  {
+   "en": "Coffee",
+   "vi": "Cà phê"
+  },
+  {
+   "en": "Tea",
+   "vi": "Trà nóng"
+  },
+  {
+   "en": "Juice",
+   "vi": "Nước ép"
+  },
+  {
+   "en": "Soda",
+   "vi": "Nước ngọt"
+  },
+  {
+   "en": "Bubble tea",
+   "vi": "Trà sữa"
+  },
+  {
+   "en": "Ice",
+   "vi": "Đá lạnh"
+  },
+  {
+   "en": "Kebab",
+   "vi": "Bánh mì kebab"
+  },
+  {
+   "en": "Falafel",
+   "vi": "Chả chiên"
+  },
+  {
+   "en": "Car",
+   "vi": "Xe hơi"
+  },
+  {
+   "en": "Taxi",
+   "vi": "Xe taxi"
+  },
+  {
+   "en": "Bus",
+   "vi": "Xe buýt"
+  },
+  {
+   "en": "Race car",
+   "vi": "Xe đua"
+  },
+  {
+   "en": "Police car",
+   "vi": "Xe cảnh sát"
+  },
+  {
+   "en": "Ambulance",
+   "vi": "Xe cứu thương"
+  },
+  {
+   "en": "Fire truck",
+   "vi": "Xe cứu hỏa"
+  },
+  {
+   "en": "Truck",
+   "vi": "Xe tải"
+  },
+  {
+   "en": "Tractor",
+   "vi": "Máy cày"
+  },
+  {
+   "en": "Pickup",
+   "vi": "Xe bán tải"
+  },
+  {
+   "en": "Motorcycle",
+   "vi": "Xe máy"
+  },
+  {
+   "en": "Scooter",
+   "vi": "Xe tay ga"
+  },
+  {
+   "en": "Bicycle",
+   "vi": "Xe đạp"
+  },
+  {
+   "en": "Kick scooter",
+   "vi": "Xe trượt"
+  },
+  {
+   "en": "Train",
+   "vi": "Tàu hỏa"
+  },
+  {
+   "en": "Bullet train",
+   "vi": "Tàu cao tốc"
+  },
+  {
+   "en": "Metro",
+   "vi": "Tàu điện ngầm"
+  },
+  {
+   "en": "Tram",
+   "vi": "Tàu điện"
+  },
+  {
+   "en": "Airplane",
+   "vi": "Máy bay"
+  },
+  {
+   "en": "Small plane",
+   "vi": "Máy bay nhỏ"
+  },
+  {
+   "en": "Helicopter",
+   "vi": "Trực thăng"
+  },
+  {
+   "en": "Rocket",
+   "vi": "Tên lửa"
+  },
+  {
+   "en": "UFO",
+   "vi": "Đĩa bay"
+  },
+  {
+   "en": "Sailboat",
+   "vi": "Thuyền buồm"
+  },
+  {
+   "en": "Speedboat",
+   "vi": "Ca nô"
+  },
+  {
+   "en": "Ship",
+   "vi": "Tàu thủy"
+  },
+  {
+   "en": "Ferry",
+   "vi": "Phà"
+  },
+  {
+   "en": "Canoe",
+   "vi": "Thuyền độc mộc"
+  },
+  {
+   "en": "Anchor",
+   "vi": "Mỏ neo"
+  },
+  {
+   "en": "Traffic light",
+   "vi": "Đèn giao thông"
+  },
+  {
+   "en": "Stop sign",
+   "vi": "Biển dừng"
+  },
+  {
+   "en": "Fuel pump",
+   "vi": "Trạm xăng"
+  },
+  {
+   "en": "House",
+   "vi": "Ngôi nhà"
+  },
+  {
+   "en": "School",
+   "vi": "Trường học"
+  },
+  {
+   "en": "Hospital",
+   "vi": "Bệnh viện"
+  },
+  {
+   "en": "Store",
+   "vi": "Cửa hàng"
+  },
+  {
+   "en": "Castle",
+   "vi": "Lâu đài"
+  },
+  {
+   "en": "Tent",
+   "vi": "Cái lều"
+  },
+  {
+   "en": "Bed",
+   "vi": "Cái giường"
+  },
+  {
+   "en": "Couch",
+   "vi": "Ghế sô pha"
+  },
+  {
+   "en": "Chair",
+   "vi": "Cái ghế"
+  },
+  {
+   "en": "Door",
+   "vi": "Cánh cửa"
+  },
+  {
+   "en": "Window",
+   "vi": "Cửa sổ"
+  },
+  {
+   "en": "Toilet",
+   "vi": "Bồn cầu"
+  },
+  {
+   "en": "Shower",
+   "vi": "Vòi sen"
+  },
+  {
+   "en": "Bathtub",
+   "vi": "Bồn tắm"
+  },
+  {
+   "en": "Toothbrush",
+   "vi": "Bàn chải răng"
+  },
+  {
+   "en": "Soap",
+   "vi": "Cục xà phòng"
+  },
+  {
+   "en": "Sponge",
+   "vi": "Miếng bọt biển"
+  },
+  {
+   "en": "Broom",
+   "vi": "Cây chổi"
+  },
+  {
+   "en": "Basket",
+   "vi": "Cái giỏ"
+  },
+  {
+   "en": "Bucket",
+   "vi": "Cái xô"
+  },
+  {
+   "en": "Key",
+   "vi": "Chìa khóa"
+  },
+  {
+   "en": "Lamp",
+   "vi": "Bóng đèn"
+  },
+  {
+   "en": "Candle",
+   "vi": "Cây nến"
+  },
+  {
+   "en": "Clock",
+   "vi": "Đồng hồ"
+  },
+  {
+   "en": "Telephone",
+   "vi": "Điện thoại bàn"
+  },
+  {
+   "en": "Mobile phone",
+   "vi": "Điện thoại"
+  },
+  {
+   "en": "Computer",
+   "vi": "Máy tính"
+  },
+  {
+   "en": "Television",
+   "vi": "Ti vi"
+  },
+  {
+   "en": "Camera",
+   "vi": "Máy ảnh"
+  },
+  {
+   "en": "Radio",
+   "vi": "Đài radio"
+  },
+  {
+   "en": "Scissors",
+   "vi": "Cây kéo"
+  },
+  {
+   "en": "Pencil",
+   "vi": "Bút chì"
+  },
+  {
+   "en": "Pen",
+   "vi": "Bút mực"
+  },
+  {
+   "en": "Crayon",
+   "vi": "Bút sáp màu"
+  },
+  {
+   "en": "Paintbrush",
+   "vi": "Cọ vẽ"
+  },
+  {
+   "en": "Book",
+   "vi": "Quyển sách"
+  },
+  {
+   "en": "Notebook",
+   "vi": "Quyển vở"
+  },
+  {
+   "en": "Ruler",
+   "vi": "Cây thước"
+  },
+  {
+   "en": "Backpack",
+   "vi": "Ba lô"
+  },
+  {
+   "en": "Umbrella",
+   "vi": "Cây dù"
+  },
+  {
+   "en": "T-shirt",
+   "vi": "Áo thun"
+  },
+  {
+   "en": "Jeans",
+   "vi": "Quần jean"
+  },
+  {
+   "en": "Coat",
+   "vi": "Áo khoác"
+  },
+  {
+   "en": "Dress",
+   "vi": "Váy đầm"
+  },
+  {
+   "en": "Shirt",
+   "vi": "Áo sơ mi"
+  },
+  {
+   "en": "Shorts",
+   "vi": "Quần đùi"
+  },
+  {
+   "en": "Socks",
+   "vi": "Đôi vớ"
+  },
+  {
+   "en": "Gloves",
+   "vi": "Găng tay"
+  },
+  {
+   "en": "Scarf",
+   "vi": "Khăn choàng"
+  },
+  {
+   "en": "Hat",
+   "vi": "Cái nón"
+  },
+  {
+   "en": "Cap",
+   "vi": "Nón lưỡi trai"
+  },
+  {
+   "en": "Crown",
+   "vi": "Vương miện"
+  },
+  {
+   "en": "Ring",
+   "vi": "Chiếc nhẫn"
+  },
+  {
+   "en": "Glasses",
+   "vi": "Mắt kính"
+  },
+  {
+   "en": "Sunglasses",
+   "vi": "Kính mát"
+  },
+  {
+   "en": "Sneakers",
+   "vi": "Giày thể thao"
+  },
+  {
+   "en": "Shoes",
+   "vi": "Đôi giày"
+  },
+  {
+   "en": "Boots",
+   "vi": "Giày ống"
+  },
+  {
+   "en": "Ball",
+   "vi": "Quả bóng"
+  },
+  {
+   "en": "Basketball",
+   "vi": "Bóng rổ"
+  },
+  {
+   "en": "Baseball",
+   "vi": "Bóng chày"
+  },
+  {
+   "en": "Tennis",
+   "vi": "Bóng tennis"
+  },
+  {
+   "en": "Balloon",
+   "vi": "Bong bóng"
+  },
+  {
+   "en": "Teddy bear",
+   "vi": "Gấu bông"
+  },
+  {
+   "en": "Kite",
+   "vi": "Con diều"
+  },
+  {
+   "en": "Yo-yo",
+   "vi": "Cái yo-yo"
+  },
+  {
+   "en": "Drum",
+   "vi": "Cái trống"
+  },
+  {
+   "en": "Guitar",
+   "vi": "Đàn ghi-ta"
+  },
+  {
+   "en": "Piano",
+   "vi": "Đàn piano"
+  },
+  {
+   "en": "Trumpet",
+   "vi": "Kèn trumpet"
+  },
+  {
+   "en": "Violin",
+   "vi": "Đàn violin"
+  },
+  {
+   "en": "Gift",
+   "vi": "Hộp quà"
+  },
+  {
+   "en": "Sun",
+   "vi": "Mặt trời"
+  },
+  {
+   "en": "Moon",
+   "vi": "Mặt trăng"
+  },
+  {
+   "en": "Star",
+   "vi": "Ngôi sao"
+  },
+  {
+   "en": "Cloud",
+   "vi": "Đám mây"
+  },
+  {
+   "en": "Rain",
+   "vi": "Mưa"
+  },
+  {
+   "en": "Storm",
+   "vi": "Bão"
+  },
+  {
+   "en": "Snow",
+   "vi": "Tuyết"
+  },
+  {
+   "en": "Snowman",
+   "vi": "Người tuyết"
+  },
+  {
+   "en": "Rainbow",
+   "vi": "Cầu vồng"
+  },
+  {
+   "en": "Tornado",
+   "vi": "Lốc xoáy"
+  },
+  {
+   "en": "Water",
+   "vi": "Nước"
+  },
+  {
+   "en": "Wave",
+   "vi": "Sóng biển"
+  },
+  {
+   "en": "Fire",
+   "vi": "Ngọn lửa"
+  },
+  {
+   "en": "Lightning",
+   "vi": "Tia sét"
+  },
+  {
+   "en": "Earth",
+   "vi": "Trái đất"
+  },
+  {
+   "en": "Mountain",
+   "vi": "Ngọn núi"
+  },
+  {
+   "en": "Volcano",
+   "vi": "Núi lửa"
+  },
+  {
+   "en": "Beach",
+   "vi": "Bãi biển"
+  },
+  {
+   "en": "Desert",
+   "vi": "Sa mạc"
+  },
+  {
+   "en": "Island",
+   "vi": "Hòn đảo"
+  },
+  {
+   "en": "Tree",
+   "vi": "Cây xanh"
+  },
+  {
+   "en": "Pine tree",
+   "vi": "Cây thông"
+  },
+  {
+   "en": "Palm tree",
+   "vi": "Cây dừa"
+  },
+  {
+   "en": "Cactus",
+   "vi": "Xương rồng"
+  },
+  {
+   "en": "Seedling",
+   "vi": "Cây mầm"
+  },
+  {
+   "en": "Herb",
+   "vi": "Nhánh cỏ"
+  },
+  {
+   "en": "Clover",
+   "vi": "Cỏ ba lá"
+  },
+  {
+   "en": "Maple leaf",
+   "vi": "Lá phong"
+  },
+  {
+   "en": "Fallen leaf",
+   "vi": "Lá rụng"
+  },
+  {
+   "en": "Leaf",
+   "vi": "Chiếc lá"
+  },
+  {
+   "en": "Tulip",
+   "vi": "Hoa tulip"
+  },
+  {
+   "en": "Rose",
+   "vi": "Hoa hồng"
+  },
+  {
+   "en": "Sunflower",
+   "vi": "Hoa hướng dương"
+  },
+  {
+   "en": "Daisy",
+   "vi": "Hoa cúc"
+  },
+  {
+   "en": "Cherry blossom",
+   "vi": "Hoa anh đào"
+  },
+  {
+   "en": "Hibiscus",
+   "vi": "Hoa dâm bụt"
+  },
+  {
+   "en": "Bouquet",
+   "vi": "Bó hoa"
+  },
+  {
+   "en": "Eye",
+   "vi": "Con mắt"
+  },
+  {
+   "en": "Ears",
+   "vi": "Cái tai"
+  },
+  {
+   "en": "Nose",
+   "vi": "Cái mũi"
+  },
+  {
+   "en": "Mouth",
+   "vi": "Cái miệng"
+  },
+  {
+   "en": "Tongue",
+   "vi": "Cái lưỡi"
+  },
+  {
+   "en": "Tooth",
+   "vi": "Cái răng"
+  },
+  {
+   "en": "Bone",
+   "vi": "Khúc xương"
+  },
+  {
+   "en": "Brain",
+   "vi": "Bộ não"
+  },
+  {
+   "en": "Heart",
+   "vi": "Trái tim"
+  },
+  {
+   "en": "Muscle",
+   "vi": "Bắp tay"
+  },
+  {
+   "en": "Leg",
+   "vi": "Cái chân"
+  },
+  {
+   "en": "Foot",
+   "vi": "Bàn chân"
+  },
+  {
+   "en": "Hand",
+   "vi": "Bàn tay"
+  },
+  {
+   "en": "Thumbs up",
+   "vi": "Ngón cái"
+  },
+  {
+   "en": "Clap",
+   "vi": "Vỗ tay"
+  },
+  {
+   "en": "Baby",
+   "vi": "Em bé"
+  },
+  {
+   "en": "Boy",
+   "vi": "Bé trai"
+  },
+  {
+   "en": "Girl",
+   "vi": "Bé gái"
+  },
+  {
+   "en": "Dad",
+   "vi": "Bố"
+  },
+  {
+   "en": "Mom",
+   "vi": "Mẹ"
+  },
+  {
+   "en": "Grandpa",
+   "vi": "Ông"
+  },
+  {
+   "en": "Grandma",
+   "vi": "Bà"
+  },
+  {
+   "en": "Family",
+   "vi": "Gia đình"
+  },
+  {
+   "en": "Happy",
+   "vi": "Vui vẻ"
+  },
+  {
+   "en": "Sad",
+   "vi": "Buồn"
+  },
+  {
+   "en": "Angry",
+   "vi": "Tức giận"
+  },
+  {
+   "en": "Sleepy",
+   "vi": "Buồn ngủ"
+  },
+  {
+   "en": "Surprised",
+   "vi": "Ngạc nhiên"
+  },
+  {
+   "en": "Scared",
+   "vi": "Sợ hãi"
+  },
+  {
+   "en": "Laughing",
+   "vi": "Cười lớn"
+  },
+  {
+   "en": "Love",
+   "vi": "Yêu thương"
+  },
+  {
+   "en": "Crying",
+   "vi": "Khóc"
+  },
+  {
+   "en": "Sick",
+   "vi": "Bị ốm"
+  },
+  {
+   "en": "Red",
+   "vi": "Màu đỏ"
+  },
+  {
+   "en": "Orange color",
+   "vi": "Màu cam"
+  },
+  {
+   "en": "Yellow",
+   "vi": "Màu vàng"
+  },
+  {
+   "en": "Green",
+   "vi": "Màu xanh lá"
+  },
+  {
+   "en": "Blue",
+   "vi": "Màu xanh dương"
+  },
+  {
+   "en": "Purple",
+   "vi": "Màu tím"
+  },
+  {
+   "en": "Brown",
+   "vi": "Màu nâu"
+  },
+  {
+   "en": "Black",
+   "vi": "Màu đen"
+  },
+  {
+   "en": "White",
+   "vi": "Màu trắng"
+  },
+  {
+   "en": "Pink",
+   "vi": "Màu hồng"
+  },
+  {
+   "en": "Circle",
+   "vi": "Hình tròn"
+  },
+  {
+   "en": "Square",
+   "vi": "Hình vuông"
+  },
+  {
+   "en": "Triangle",
+   "vi": "Hình tam giác"
+  },
+  {
+   "en": "Diamond",
+   "vi": "Hình thoi"
+  },
+  {
+   "en": "One",
+   "vi": "Số một"
+  },
+  {
+   "en": "Two",
+   "vi": "Số hai"
+  },
+  {
+   "en": "Three",
+   "vi": "Số ba"
+  },
+  {
+   "en": "Four",
+   "vi": "Số bốn"
+  },
+  {
+   "en": "Five",
+   "vi": "Số năm"
+  },
+  {
+   "en": "Six",
+   "vi": "Số sáu"
+  },
+  {
+   "en": "Seven",
+   "vi": "Số bảy"
+  },
+  {
+   "en": "Eight",
+   "vi": "Số tám"
+  },
+  {
+   "en": "Nine",
+   "vi": "Số chín"
+  },
+  {
+   "en": "Ten",
+   "vi": "Số mười"
+  },
+  {
+   "en": "Eleven",
+   "vi": "Số mười một"
+  },
+  {
+   "en": "Twelve",
+   "vi": "Số mười hai"
+  },
+  {
+   "en": "Thirteen",
+   "vi": "Số mười ba"
+  },
+  {
+   "en": "Fourteen",
+   "vi": "Số mười bốn"
+  },
+  {
+   "en": "Fifteen",
+   "vi": "Số mười lăm"
+  },
+  {
+   "en": "Sixteen",
+   "vi": "Số mười sáu"
+  },
+  {
+   "en": "Seventeen",
+   "vi": "Số mười bảy"
+  },
+  {
+   "en": "Eighteen",
+   "vi": "Số mười tám"
+  },
+  {
+   "en": "Nineteen",
+   "vi": "Số mười chín"
+  },
+  {
+   "en": "Twenty",
+   "vi": "Số hai mươi"
+  },
+  {
+   "en": "Flower",
+   "vi": "Bông hoa"
+  }
+ ],
+ "phrases": {
+  "p:hello": "Chào bé! Cùng các bạn quái vật học tiếng Anh nào!",
+  "p:play": "Chào mừng bé đến khu vui chơi! Bé chạm vào mọi thứ để khám phá nhé!",
+  "p:correct": "Đúng rồi! Giỏi quá!",
+  "p:wrong": "Chưa đúng, bé tìm lại nhé!",
+  "p:excellent": "Xuất sắc! Bé đúng hết luôn! Bé được thưởng thật nhiều ngôi sao!",
+  "p:good": "Bé giỏi quá! Bé được thưởng ngôi sao!",
+  "p:try": "Cố lên bé nhé! Bé sẽ làm tốt hơn!",
+  "p:test": "Xin chào! Bé cùng học tiếng Anh thật vui nhé!",
+  "p:topic_animals": "Chủ đề Động vật. Bé bấm vào loa để nghe nhé!",
+  "p:topic_food": "Chủ đề Đồ ăn và Trái cây. Bé bấm vào loa để nghe nhé!",
+  "p:topic_things": "Chủ đề Đồ vật và Xe cộ. Bé bấm vào loa để nghe nhé!",
+  "p:topic_nature": "Chủ đề Thiên nhiên và Bé. Bé bấm vào loa để nghe nhé!"
+ }
+}
