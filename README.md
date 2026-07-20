@@ -23,6 +23,7 @@ Sau khi bật GitHub Pages: `https://<tên-tài-khoản>.github.io/<tên-repo>/`
 - Âm thanh phản hồi mọi thao tác, chuyển cảnh mượt, linh vật quái vật biểu cảm theo kết quả
 
 ### Dành cho ba mẹ (khóa phép toán)
+- **Tài khoản (Firebase)**: đăng ký/đăng nhập bằng email, kèm tên bé; **tiến độ học tự động đồng bộ lên đám mây (Firestore)** — đổi máy vẫn giữ sao, từ đã học; có nút quên mật khẩu; vẫn cho phép "Chơi ngay, không cần tài khoản" (khi đó tiến độ chỉ lưu trên máy)
 - Biểu đồ **tuần / tháng / năm**: sao, từ mới, phút học; chuỗi ngày học; tỉ lệ đúng; tiến độ từng chủ đề
 - **Cài đặt giọng đọc tiếng Việt**: chọn giọng, chỉnh độ cao (giọng trẻ em), nghe thử
 - Tự cảnh báo khi trình duyệt thiếu giọng tiếng Việt (nguyên nhân giọng "lơ lớ")
@@ -51,6 +52,8 @@ Cách tạo giọng (làm 1 lần): cài Python từ [python.org/downloads](http
 │   ├── sprites.js           # Bộ nhân vật SVG vẽ tay (17 sprite + linh vật)
 │   ├── audio.js             # Bộ máy âm thanh: tiếng kêu, hiệu ứng, nhạc nền
 │   └── app.js               # Luồng màn hình, trò chơi, thống kê, giọng đọc
+├── auth.js                  # Đăng nhập Firebase + lưu tiến độ Firestore (ES module)
+├── firebase-config.js       # Cấu hình Firebase của dự án
 ├── audio/                   # (tạo bằng tools/) vi.mp3 + vi.json — giọng Việt bản xứ
 ├── tools/
 │   ├── TAO_GIONG_VIET.bat   # Nhấp đúp để tạo giọng Việt bản xứ (1 lần)

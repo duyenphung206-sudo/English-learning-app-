@@ -65,13 +65,97 @@ function checkViVoice(){
   else w.classList.remove('show');
 }
 
+/* ================== TÀI KHOẢN (Firebase - auth.js) + ĐỒNG BỘ ĐÁM MÂY ================== */
+const AUTH={user:null,profile:null,syncT:null};
+function authReady(){ return !!window.Auth; }
+function mergeP(loc,cld){
+  if(!cld||!cld.days) return loc;
+  const out={days:{},words:{},set:loc.set};
+  const dk={}; Object.keys(loc.days).concat(Object.keys(cld.days)).forEach(k=>dk[k]=1);
+  Object.keys(dk).forEach(k=>{
+    const a=loc.days[k]||{}, b=cld.days[k]||{}, m={};
+    ['stars','words','correct','total','sec'].forEach(f=>m[f]=Math.max(a[f]||0,b[f]||0));
+    out.days[k]=m;
+  });
+  Object.assign(out.words,cld.words||{},loc.words||{});
+  return out;
+}
+function cloudPush(){
+  if(!AUTH.user||!authReady()) return;
+  clearTimeout(AUTH.syncT);
+  AUTH.syncT=setTimeout(()=>{ window.Auth.saveProgress(AUTH.user.uid,{appData:P}).catch(()=>{}); },1500);
+}
+function initAuth(){
+  if(initAuth.done) return;
+  if(!authReady()){ setTimeout(initAuth,400); return; } /* đợi module auth.js nạp xong */
+  initAuth.done=true;
+  window.Auth.onAuthStateChanged(async u=>{
+    AUTH.user=u||null;
+    if(u){
+      try{
+        AUTH.profile=await window.Auth.loadProfile(u.uid);
+        if(AUTH.profile&&AUTH.profile.appData){ P=mergeP(P,AUTH.profile.appData); save(); refreshStars(); }
+        else cloudPush();
+      }catch(e){}
+      const lg=document.getElementById('scr-login');
+      if(lg&&lg.classList.contains('active')) goHome();
+    } else { AUTH.profile=null; }
+    updateAuthUI();
+  });
+}
+function childName(){ return (AUTH.profile&&AUTH.profile.childName)||''; }
+function updateAuthUI(){
+  const box=document.getElementById('acctBox');
+  if(box){
+    if(!authReady()){
+      box.innerHTML='<span style="color:var(--sub)">Tính năng tài khoản hoạt động khi web chạy qua GitHub Pages (không chạy khi mở file trực tiếp).</span>';
+    } else if(AUTH.user){
+      box.innerHTML='Đang đăng nhập: <b>'+AUTH.user.email+'</b>'+(childName()?' — Bé: <b>'+childName()+'</b>':'')+
+        '<br>Tiến độ của bé được tự động lưu lên đám mây.<br>'+
+        '<button class="btn pink" style="font-size:15px;padding:9px 20px" onclick="doLogout()">Đăng xuất</button>';
+    } else {
+      box.innerHTML='Chưa đăng nhập — tiến độ chỉ lưu trên máy này.<br>'+
+        '<button class="btn blue" style="font-size:15px;padding:9px 20px" onclick="showScreen(&quot;scr-login&quot;)">Đăng nhập / Đăng ký</button>';
+    }
+  }
+  const tg=document.querySelector('#scr-home .tagline');
+  if(tg) tg.textContent=childName()?('Chào bé '+childName()+'! Bé chọn trò nhé! 👇'):'Bé chọn trò nhé! 👇';
+}
+function aMsg(t,ok){ const m=document.getElementById('aMsg'); if(m){ m.textContent=t||''; m.className=ok?'ok':''; } }
+async function doLogin(){
+  if(!authReady()){ aMsg('Không kết nối được dịch vụ tài khoản.'); return; }
+  const e=document.getElementById('aEmail').value.trim(), p=document.getElementById('aPass').value;
+  if(!e||!p){ aMsg('Nhập email và mật khẩu nhé.'); return; }
+  aMsg('Đang đăng nhập...',1);
+  try{ await window.Auth.login(e,p); aMsg(''); }
+  catch(err){ aMsg(window.Auth.friendlyError(err.code)); }
+}
+async function doRegister(){
+  if(!authReady()){ aMsg('Không kết nối được dịch vụ tài khoản.'); return; }
+  const e=document.getElementById('aEmail').value.trim(), p=document.getElementById('aPass').value,
+        n=document.getElementById('aName').value.trim();
+  if(!e||!p){ aMsg('Nhập email và mật khẩu nhé.'); return; }
+  aMsg('Đang tạo tài khoản...',1);
+  try{ await window.Auth.register(e,p,n); aMsg(''); }
+  catch(err){ aMsg(window.Auth.friendlyError(err.code)); }
+}
+async function doForgot(){
+  if(!authReady()) return;
+  const e=document.getElementById('aEmail').value.trim();
+  if(!e){ aMsg('Nhập email trước nhé.'); return; }
+  try{ await window.Auth.resetPassword(e); aMsg('Đã gửi email đặt lại mật khẩu!',1); }
+  catch(err){ aMsg(window.Auth.friendlyError(err.code)); }
+}
+function skipLogin(){ P.set.skipLogin=1; save(); goHome(); }
+function doLogout(){ if(authReady()) window.Auth.logout(); AUTH.user=null; AUTH.profile=null; updateAuthUI(); }
+
 /* ================== LƯU TIẾN ĐỘ (localStorage) ================== */
 const KEY='beHocTiengAnh_v1';
 let P;
 try{ P=JSON.parse(localStorage.getItem(KEY))||null; }catch(e){ P=null; }
 if(!P||!P.days) P={days:{},words:{}};
 if(!P.set) P.set={voice:'',pitch:1.35};
-function save(){ try{ localStorage.setItem(KEY,JSON.stringify(P)); }catch(e){} }
+function save(){ try{ localStorage.setItem(KEY,JSON.stringify(P)); }catch(e){} cloudPush(); }
 function dkey(d){ d=d||new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
 function day(){ const k=dkey(); if(!P.days[k])P.days[k]={stars:0,words:0,correct:0,total:0,sec:0}; return P.days[k]; }
 function addStar(n){ day().stars+=n; save(); refreshStars(); }
@@ -101,6 +185,8 @@ document.getElementById('homeMonsters').innerHTML=
 document.querySelectorAll('#homeMonsters .monster').forEach((m,i)=>m.style.animationDelay=(i*0.35)+'s');
 document.getElementById('learnMascot').innerHTML=monsterSVG('#f7941d','#c26a0a','bob');
 document.getElementById('qMascot').innerHTML=monsterSVG('#9b59d0','#6e35a0','');
+const _lm=document.getElementById('loginMonster');
+if(_lm)_lm.innerHTML=monsterSVG('#f0629a','#bb3a6e','bob');
 document.getElementById('rewardMonster').innerHTML=monsterSVG('#3b9ee8','#1f6cb0','open jump');
 const grid=document.getElementById('topicGrid');
 const playCard=document.createElement('button');
@@ -371,6 +457,7 @@ function renderParent(){
   rows+='<div class="tRow">🏡 <b>Khu vui chơi</b> — '+pd+'/'+PLAY_ITEMS.length+
     '<div class="prog"><div style="width:'+Math.round(pd/PLAY_ITEMS.length*100)+'%"></div></div></div>';
   document.getElementById('topicProg').innerHTML=rows;
+  updateAuthUI();
   fillVoiceSel();
   renderChart();
 }
@@ -404,10 +491,13 @@ function resetData(){
 
 /* ================== KHỞI ĐỘNG ================== */
 document.getElementById('homeMonsters').style.display='none';
+initAuth();
 document.getElementById('startOverlay').addEventListener('click',function(){
   ac(); loadVoices(); initVN();
   this.classList.add('hide');
-  showScreen('scr-home'); refreshStars();
+  if(authReady()&&!AUTH.user&&!P.set.skipLogin) showScreen('scr-login');
+  else showScreen('scr-home');
+  refreshStars();
   setTimeout(()=>{ checkViVoice(); playVI('p:hello','Chào bé! Cùng các bạn quái vật học tiếng Anh nào!'); },900);
 });
 document.addEventListener('pointerdown',e=>{
